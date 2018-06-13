@@ -1,0 +1,37 @@
+{
+  "name": "eMovie-system",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "supervisor server.js"
+  },
+  "dependencies": {
+    "@alicloud/sms-sdk": "^1.1.1",
+    "apidoc": "^0.17.5",
+    "bluebird": "^3.5.1",
+    "body-parser": "~1.15.1",
+    "co": "^4.6.0",
+    "cookie-parser": "~1.4.3",
+    "crypto": "^0.0.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-mysql-session": "^1.2.0",
+    "express-session": "^1.15.2",
+    "md5": "^2.2.1",
+    "morgan": "~1.7.0",
+    "mysql": "^2.13.0",
+    "promise": "^7.1.1",
+    "serve-favicon": "~2.3.0",
+    "super-alidayu": "^2.0.0"
+  },
+  "apidoc": {
+    "title": "eMovie-system",
+    "description": "eMovie-system API 文档",
+    "url": "",
+    "template": {
+      "withCompare": true,
+      "withGenerator": true
+    }
+  },
+  "devDependencies": {}
+}
