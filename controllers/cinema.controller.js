@@ -1,7 +1,5 @@
 /**
- * @description Cinema Controller
- * @create 2017/6/9
- * @author 陈海城
+ * @description Movie book controller
  */
 const { sendData, cowrapObj, handleError } = require('../utils');
 const Cinema = require('../models/cinema.model');
@@ -12,10 +10,7 @@ module.exports = cowrapObj({
   getCinDetailInfo
 });
 
-/**
- * @description 解析影院信息并保存进 paramData.cinema 中
- * @author 陈海城
- */
+
 function* paramData(req, res, next, cin_id) {
   cin_id = cin_id || req.params.cin_id;
   let data;
@@ -29,10 +24,7 @@ function* paramData(req, res, next, cin_id) {
   return next();
 }
 
-/**
- * @description 获取影院信息
- * @author 陈海城
- */
+
 function* getCinDetailInfo(req, res, next) {
   let { cin_id } = req.params;
   let cinema = req.paramData.cinema;

@@ -1,7 +1,5 @@
 /**
- * @description Cinema Model
- * @create 2017/6/9
- * @author 陈海城
+ * @description Movie book models
  */
 const { queryDb } = require('../services/db');
 
@@ -11,10 +9,7 @@ module.exports = {
   getMoviesByCinId
 }
 
-/**
- * @description 查找指定影院信息
- * @author 陈海城
- */
+
 function getCinInfo(cin_id) {
   const sql = `
     SELECT * FROM cinema WHERE cin_id = ?;
@@ -22,10 +17,7 @@ function getCinInfo(cin_id) {
   return queryDb(sql, [ cin_id ]);
 }
 
-/**
- * @description 查找指定影院的评论信息
- * @author 陈海城
- */
+
 function getCinComments(cin_id) {
   const sql = `
     SELECT ur.user_id, ur.phone, ur.name, cc.description, cc.created_at
@@ -35,10 +27,7 @@ function getCinComments(cin_id) {
   return queryDb(sql, [ cin_id ]);
 }
 
-/**
- * @description 查找指定影院播放的所有电影
- * @author 陈海城
- */
+
 function getMoviesByCinId(cin_id) {
   const sql = `
     SELECT mv.mov_id, mv.name, mv.type, mv.length, mv.imgUrl

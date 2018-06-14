@@ -1,7 +1,5 @@
 /**
- * @description User model
- * @create 2017/4/29
- * @author 陈海城
+ * @description Movie book models
  */
 const { queryDb } = require('../services/db');
 
@@ -14,10 +12,7 @@ module.exports = {
 	updatePayNum
 }
 
-/**
- * @description 根据 phone 查找注册码
- * @author 陈海城
- */
+
 function findRegisterByPhone(phone) {
 	const sql = `
 		SELECT *
@@ -27,10 +22,7 @@ function findRegisterByPhone(phone) {
 	return queryDb(sql, [ phone ]);
 }
 
-/*
- * @description 插入一条注册记录
- * @author 陈海城
- */
+
 function createOneRegisterRecord(phone, code, create_at) {
 	const sql = `
 		INSERT INTO register
@@ -40,10 +32,7 @@ function createOneRegisterRecord(phone, code, create_at) {
 	return queryDb(sql, values);
 }
 
-/**
- * @description 更新注册记录时间
- * @author 陈海城
- */
+
 function updateRegisterTime(phone, code, create_at) {
 	const sql = `
 		UPDATE register
@@ -53,10 +42,7 @@ function updateRegisterTime(phone, code, create_at) {
 	return queryDb(sql, [ create_at, code, phone ]);
 }
 
-/**
- * @description 根据 phone 查找用户
- * @author 陈海城
- */
+
 function findUserByPhone(phone) {
 	const sql = `
 		SELECT *
@@ -66,10 +52,7 @@ function findUserByPhone(phone) {
 	return queryDb(sql, [ phone ]);
 }
 
-/**
- * @description 创建用户
- * @author 陈海城
- */
+
 function createUser(phone, password, name = null, pay_num = null) {
 	const sql = `
 		INSERT INTO user
@@ -81,10 +64,7 @@ function createUser(phone, password, name = null, pay_num = null) {
 	return queryDb(sql, values);
 }
 
-/**
- * @description 更新支付账号
- * @author 陈海城
- */
+
 function updatePayNum(user_id, pay_num) {
 	const sql = `
 		UPDATE user SET pay_num = ? WHERE user_id = ?;

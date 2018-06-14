@@ -1,6 +1,5 @@
-/*
- * @description People router
- * @author 陈海城
+/**
+ * @description Movie book routers
  */
 const router = require('express').Router();
 const peCtrl = require('../controllers/people.controller');

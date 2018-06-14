@@ -1,7 +1,5 @@
-/*
- * @description Move seat controller
- * @create 2017/6/8
- * @author 陈海城
+/**
+ * @description Movie book controller
  */
 const { sendData, cowrapObj, handleError } = require('../utils');
 const MovieSeat = require('../models/movie_seat.model');
@@ -10,10 +8,7 @@ module.exports = cowrapObj({
   getSeatsInfo
 })
 
-/**
- * @description 获取某个影院的所有座位信息
- * @author 陈海城
- */
+
 function *getSeatsInfo(req, res, next) {
 	let { vh_id } = req.query;
 	if (vh_id === undefined)

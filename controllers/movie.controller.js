@@ -1,7 +1,5 @@
 /**
- * @description Movie controller
- * @create at 2017/4/30
- * @author 陈海城
+ * @description Movie book controller
  */
 const { sendData, cowrapObj, handleError } = require('../utils');
 const Movie = require('../models/movie.model');
@@ -14,10 +12,7 @@ module.exports = cowrapObj({
 	searchMovie
 })
 
-/*
- * @description 解析 mov_id 并将结果保存至 req.paramData.movie 中
- * @author 陈海城
- */
+
 function* paramData(req, res, next, mov_id) {
 	// TODO 此处有bug，mov_id是undefined，先暂时这样，待调试
 	mov_id = mov_id || req.params.mov_id;
@@ -52,18 +47,12 @@ function* paramData(req, res, next, mov_id) {
 	return next();
 }
 
-/*
- * @description 获取某部电影详细信息
- * @author 陈海城
- */
+
 function* getMovieDetail(req, res, next) {
 	return sendData(req, res, 'OK', req.paramData.movie, '电影信息获取成功');
 }
 
-/**
- * @description 获取 某部电影+播放 信息
- * @author 陈海城
- */
+
 function* getMovieAndPlayingDetail(req, res, next) {
 	const mov_id = req.params.mov_id;
 	let movie = req.paramData.movie;
@@ -139,10 +128,7 @@ function* getMovieAndPlayingDetail(req, res, next) {
 	}
 }
 
-/**
- * @description 获取电影列表数据
- * @author 陈海城
- */
+
 function* getMoviesList(req, res, next) {
 	let data = {};
 	try {
@@ -155,10 +141,7 @@ function* getMoviesList(req, res, next) {
 	return sendData(req, res, 'OK', data, '数据获取成功');
 }
 
-/**
- * @description 搜索电影
- * @author 陈海城
- */
+
 function* searchMovie(req, res, next) {
 	let { name } = req.query;
 	if (!name)

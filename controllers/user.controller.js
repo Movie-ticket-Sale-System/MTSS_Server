@@ -1,7 +1,5 @@
-/*
- * User controller
- * @create 2017/4/29
- * @author 陈海城
+/**
+ * @description Movie book controller
  */
 const config = require('../config/config');
 const { sendData, cowrapObj, handleError } = require('../utils');
@@ -17,10 +15,7 @@ module.exports = Object.assign({ logout },
   })
 )
 
-/*
- * @description 发送短信验证码
- * @author 陈海城
- */
+
 function* sendSms(req, res, next) {
   const { phone } = req.body;
 
@@ -67,10 +62,7 @@ function* sendSms(req, res, next) {
   }
 }
 
-/*
- * @description 注册
- * @author 陈海城
- */
+
 function* register(req, res, next) {
   const { phone, password, password2, code } = req.body;
 
@@ -99,10 +91,7 @@ function* register(req, res, next) {
   }
 }
 
-/*
- * @description 用户登录
- * @author 陈海城
- */
+
 function* login(req, res, next) {
   const { phone, password } = req.body;
   if (!phone || !password)
@@ -129,10 +118,7 @@ function* login(req, res, next) {
   }
 }
 
-/*
- * @description 用户注销
- * @author 陈海城
- */
+
 function logout(req, res, next) {
   if (req.session.hasOwnProperty('user')) {
     req.session.user = null;

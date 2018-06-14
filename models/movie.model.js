@@ -1,7 +1,5 @@
 /**
- * @description Movie model
- * @create at 2017/4/30
- * @author 陈海城
+ * @description Movie book models
  */
 const { queryDb } = require('../services/db');
 
@@ -18,10 +16,7 @@ module.exports = {
 	getMoviesVedioHellByCinId
 }
 
-/**
- * @description 获取从 第(index + 1) 开始的 counts 部电影的信息
- * @author 陈海城
- */
+
 function findMovieList(index, counts) {
 	const sql = `
 		SELECT mov_id, name
@@ -31,10 +26,7 @@ function findMovieList(index, counts) {
 	return queryDb(sql, [ index, counts ]);
 }
 
-/**
- * @description 查找某部电影
- * @author 陈海城
- */
+
 function findMovieById(mov_id) {
 	const sql = `
 		SELECT *
@@ -44,11 +36,7 @@ function findMovieById(mov_id) {
 	return queryDb(sql, [ mov_id ]);
 }
 
-/**
- * @description 批量查找电影的导演、编剧和主演
- * @param {Number/Array} mov_ids
- * @author 陈海城
- */
+
 function findMoviePeople(mov_ids) {
 	mov_ids = Array.isArray(mov_ids) ? mov_ids : [ mov_ids ];
 	const sql = `
@@ -82,10 +70,7 @@ function findMoviePeople(mov_ids) {
 	return queryDb(sql, [ mov_ids ]);
 }
 
-/**
- * @description 查找某部电影的所有播放地点信息
- * @author 陈海城
- */
+
 function findMovePlayingInfo(mov_id) {
 	const sql = `
 		SELECT vm.vh_mov_id, vm.type, vm.starttime, vm.endtime, vm.price,
@@ -103,21 +88,8 @@ function findMovePlayingInfo(mov_id) {
 	return queryDb(sql, [ mov_id ]);
 }
 
-/**
- * @description 获取 sum 部正在上映的电影
- * @author 陈海城
- */
-function getNowMovies(sum) {
-	// const sql = `
-	// 	SELECT DISTINCT(mov_id), name, grade, imgUrl
-	// 	FROM (
-	// 		SELECT mv.mov_id, mv.name, mv.grade, imgUrl
-	// 		FROM movie mv, video_movie vm
-	// 		WHERE mv.mov_id = vm.mov_id AND vm.starttime >= NOW()
-	// 		ORDER BY vm.starttime DESC) AS temp
-	// 	LIMIT ?;
-	// `;
 
+function getNowMovies(sum) {
 	const sql = `
 		SELECT mov_id, name, grade, imgUrl
 		FROM movie
@@ -128,10 +100,7 @@ function getNowMovies(sum) {
 	return queryDb(sql, [ sum ]);
 }
 
-/**
- * @description 获取 sum 部即将上映的电影
- * @author 陈海城
- */
+
 function getFetureMovies(sum) {
 	const sql = `
 		SELECT mov_id, name, grade, imgUrl
@@ -143,10 +112,7 @@ function getFetureMovies(sum) {
 	return queryDb(sql, [ sum ]);
 }
 
-/**
- * @description 获取前 sum 部好评电影
- * @author 陈海城
- */
+
 function getSumGoodMovies(sum) {
 	const sql = `
 		SELECT mov_id, name, grade
@@ -157,10 +123,7 @@ function getSumGoodMovies(sum) {
 	return queryDb(sql, [ sum ]);
 }
 
-/**
- * @description 搜索影片
- * @author 陈海城
- */
+
 function searchMovie(searchKey) {
 	const sql = `
 		SELECT name, mov_id FROM movie
@@ -169,10 +132,7 @@ function searchMovie(searchKey) {
 	return queryDb(sql, [ '%' + searchKey + '%' ]);
 }
 
-/**
- * @description 批量查找影片信息
- * @author 陈海城
- */
+
 function getMoviesInfo(mov_ids) {
 	const sql = `
 		SELECT * FROM movie WHERE mov_id in (?); 
@@ -180,10 +140,7 @@ function getMoviesInfo(mov_ids) {
 	return queryDb(sql, [ mov_ids ]);
 }
 
-/**
- * @description 批量指定影院的播放厅信息
- * @author 陈海城
- */
+
 function getMoviesVedioHellByCinId(cin_id, mov_ids) {
 	const sql = `
 		SELECT vm.vh_mov_id, vm.mov_id, vm.type, vm.starttime, vm.price, vh.name

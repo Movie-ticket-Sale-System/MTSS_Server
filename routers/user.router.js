@@ -1,6 +1,5 @@
-/*
- * @description User router
- * @author 陈海城
+/**
+ * @description Movie book routers
  */
 const router = require('express').Router();
 const usrCtrl = require('../controllers/user.controller');

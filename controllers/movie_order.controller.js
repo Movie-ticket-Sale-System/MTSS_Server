@@ -1,7 +1,5 @@
 /**
  * @description Movie book controller
- * @create 2017/5/1
- * @author 陈海城
  */
 const { sendData, cowrapObj, handleError } = require('../utils');
 const MovieOrder = require('../models/movie_order.model');
@@ -14,10 +12,7 @@ module.exports = cowrapObj({
 	makeSureTicket
 })
 
-/**
- * @description 点击确认选座后返回数据
- * @author 陈海城
- */
+
 function* getBookData(req, res, next) {
 	const { vh_mov_id, seats_id, price } = req.body;
 	if (!vh_mov_id || !seats_id || price === undefined)
@@ -95,10 +90,7 @@ function* getBookData(req, res, next) {
 	}
 }
 
-/**
- * @description 撤销未支付订单
- * @author 陈海城
- */
+
 function* cancleOrder(req, res, next) {
 	const { seat_id } = req.body;
 	if (!seat_id)
@@ -119,10 +111,7 @@ function* cancleOrder(req, res, next) {
 	}
 }
 
-/**
- * @description 批量确认支付订单
- * @author 陈海城
- */
+
 function* makeSureTicket(req, res, next) {
 	let { tcks_id, pay_num, pay_pwd, price } = req.body;
 	if (!tcks_id || !pay_num || !pay_pwd || price === undefined)

@@ -1,7 +1,5 @@
 /**
- * @description Movie seat Router
- * @create 2017/6/8
- * @author 陈海城
+ * @description Movie book routers
  */
 let router = require('express').Router();
 let msCtl = require('../controllers/movie_seat.controller');

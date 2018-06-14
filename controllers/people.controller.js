@@ -1,7 +1,5 @@
-/*
- * @description People controller
- * @create 2017/4/30
- * @author 陈海城
+/**
+ * @description Movie book controller
  */
 const { sendData, cowrapObj, handleError } = require('../utils');
 const People = require('../models/people.model');
@@ -11,10 +9,7 @@ module.exports = cowrapObj({
 	getPeopleInfo
 })
 
-/*
- * @description 解析人物信息
- * @author 陈海城
- */
+
 function* paramData(req, res, next, peo_id) {
 	peo_id = peo_id || req.params.peo_id;
 	let data;
@@ -28,10 +23,7 @@ function* paramData(req, res, next, peo_id) {
 	return next();
 }
 
-/*
- * @description 获取人物信息
- * @author 陈海城
- */
+
 function* getPeopleInfo(req, res, next) {
 	return sendData(req, res, 'OK', req.paramData.people, '人物信息获取成功');
 }

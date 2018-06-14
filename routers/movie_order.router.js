@@ -1,6 +1,5 @@
 /**
- * @description Movie book router
- * @author 陈海城
+ * @description Movie book routers
  */
 const router = require('express').Router();
 const mdCtrl = require('../controllers/movie_order.controller');

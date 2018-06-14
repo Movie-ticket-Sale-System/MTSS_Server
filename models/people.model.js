@@ -1,7 +1,5 @@
-/*
- * @description People model
- * @create 2017/4/30
- * @author 陈海城
+/**
+ * @description Movie book models
  */
 const { queryDb } = require('../services/db');
 
@@ -9,10 +7,7 @@ module.exports = {
 	findPeopleById
 }
 
-/*
- * @description 获取人物信息
- * @author 陈海城
- */
+
 function findPeopleById(peo_id) {
 	const sql = `
 		SELECT * FROM people
