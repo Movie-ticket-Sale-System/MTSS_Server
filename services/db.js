@@ -2,10 +2,13 @@
  * @description Movie book services
  */
 const config = require('../config/config');
+
 const mysql = require('mysql');
+
 const Promise = require('bluebird');
 
 Promise.promisifyAll(require('mysql/lib/Connection').prototype);
+
 Promise.promisifyAll(require('mysql/lib/Pool').prototype);
 
 const dbconf = {
