@@ -14,6 +14,7 @@ function getCinInfo(cin_id) {
   const sql = `
     SELECT * FROM cinema WHERE cin_id = ?;
   `;
+
   return queryDb(sql, [ cin_id ]);
 }
 
@@ -24,6 +25,7 @@ function getCinComments(cin_id) {
     FROM user ur, cinema_comment cc
     WHERE ur.user_id = cc.user_id AND cc.cin_id = ?;
   `;
+
   return queryDb(sql, [ cin_id ]);
 }
 
@@ -38,5 +40,6 @@ function getMoviesByCinId(cin_id) {
     ) AS temp, movie mv
     WHERE temp.mov_id = mv.mov_id;
   `;
+
   return queryDb(sql, [ cin_id ]);
 }

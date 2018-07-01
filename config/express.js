@@ -2,14 +2,23 @@
  *  配置express各种中间件
  */
 const config = require('./config');
+
 const express = require('express');
+
 const path = require('path');
+
 const favicon = require('serve-favicon');
+
 const logger = require('morgan');
+
 const session = require('express-session');
+
 const cookieParser = require('cookie-parser');
+
 const bodyParser = require('body-parser');
+
 const sessionStore = new require('express-mysql-session')(config.db);
+
 const { sendData } = require('../utils');
 
 module.exports = () => {
