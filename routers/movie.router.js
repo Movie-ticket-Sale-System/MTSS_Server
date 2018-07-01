@@ -1,9 +1,13 @@
 /**
  * @description Movie book routers
  */
+
 const router = require('express').Router();
+
 const mvCtrl = require('../controllers/movie.controller');
+
 const mdRtr = require('./movie_order.router');
+
 const msRtr = require('./movie_seat.router');
 
 module.exports = app => app.use('/api/movies', router);

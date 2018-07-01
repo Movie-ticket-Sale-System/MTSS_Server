@@ -56,6 +56,6 @@ function changeTickesState(tcks_id, status) {
 
 function checkTicketsBelongToUser(tcks_id, user_id) {
 	const sql = 'SELECT * FROM ticket WHERE user_id = ? AND tck_id IN (?);'
-	
+
 	return queryDb(sql, [ user_id, tcks_id ]);
 }
